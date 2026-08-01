@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSE Mentorship Platform 2026 | Foundation to Career</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<nav class="topnav">
+  <div class="brand">CSE<span>2026</span> <em>Mentorship Platform</em></div>
+  <div class="navlinks">
+    <button data-section="intro" class="active">Intro</button>
+    <button data-section="howto">How to Use</button>
+    <button data-section="roadmap">Roadmap</button>
+    <button data-section="resources">Resources</button>
+    <button data-section="progress">My Progress</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- INTRO -->
+  <section id="intro" class="view">
+    <div class="hero">
+      <div class="pill">BUILT FOR MENTORS & STUDENTS • INDIA SKILLS REPORT 2026 ALIGNED</div>
+      <h1>Why Year 1-2 defines whether a CSE student gets a job in Year 4</h1>
+      <p class="lead">This is not a course list. This is a mentorship operating system. It solves 3 problems you face daily as a mentor: (1) Students chase languages without foundation, (2) Final year panic without career clarity, (3) Passed-out students with no tracking of what they actually completed.</p>
+      
+      <div class="intro-grid">
+        <div class="intro-card"><h3>What this contains</h3><ul>
+          <li><b>Fishbone Diagram (Ishikawa) for Y1-Y2:</b> 4 bones - Programming Logic, CS Core (DSA/DBMS/OS/CN), Math & Logic, Engineering Habits. These are root causes of unemployability if weak.</li>
+          <li><b>Flowchart for Y3-Y4:</b> 6 career tracks with Indian market demand, fresher & mid-level salary bands, skills semester-wise, 2 projects per track, certifications, target companies (Product vs Service vs Corporate).</li>
+          <li><b>Recovery Plan:</b> 90-day fast-track for passed-out job seekers - SQL + Cloud + One Track.</li>
+          <li><b>Progress Tracker:</b> Student can check off tasks, Supabase stores it, mentor can see cohort.</li>
+        </ul></div>
+        <div class="intro-card"><h3>The Philosophy</h3>
+          <p><b>Foundation = Employability, Specialization = Salary Multiplier.</b> Data from India Skills Report 2026: CSE employability 80%, B.Tech overall 71.5% - highest in 5 years. Freshers 3.5-7 LPA, average 9-15 LPA, with Bangalore/Hyd/Pune 20-30% premium. Product companies pay higher starting, but Corporate Digitization (banks, manufacturing, retail computerising systems) has massive volume and stability.</p>
+          <p style="margin-top:8px">This tool intentionally delays Python vs Java choice to Year 3. Year 1-2 is language-agnostic problem solving + SQL + Linux.</p>
+          <div class="stats-row">
+            <div class="stat"><b>80%</b><span>CSE Employability</span></div>
+            <div class="stat"><b>71.5%</b><span>B.Tech 2025 High</span></div>
+            <div class="stat"><b>6 Tracks</b><span>SaaS + Corporate</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section id="howto" class="view hidden">
+    <div class="card">
+      <h2>How to use - For Mentors & For Students</h2>
+      <div class="how-grid">
+        <div class="how">
+          <h3>🎓 If you are a 1st/2nd Year Student</h3>
+          <ol>
+            <li>Open <b>Roadmap → Fishbone</b>. Ignore career tracks for now.</li>
+            <li>For each bone, check off sub-tasks in <b>My Progress</b>. Example: C Language = Pointers + Memory + File handling done?</li>
+            <li>Rule: Don't jump to React/AI until you finish SQL + DSA + Linux basics. Track weekly streak.</li>
+            <li>Goal by end of 2nd year: 2 projects + GitHub with 100+ commits + 100 DSA patterns + SQL 50 problems.</li>
+          </ol>
+        </div>
+        <div class="how">
+          <h3>💼 If you are 3rd/4th Year</h3>
+          <ol>
+            <li>Open <b>Flowchart</b>, filter by interest: SaaS vs Corporate vs Fast Entry.</li>
+            <li>Pick ONE track. Don't do 3 tracks parallely. See semester-wise skills (Sem5-8).</li>
+            <li>Build the 2 projects listed for that track - deploy on cloud, add to progress tracker.</li>
+            <li>Take the certification listed, update resume with metrics.</li>
+          </ol>
+        </div>
+        <div class="how">
+          <h3>🔄 If you are Passed-Out & Job Seeking</h3>
+          <ol>
+            <li>Don't restart 4 years. Go to <b>Recovery Plan</b> in Roadmap section.</li>
+            <li>Day 1-30: SQL + Aptitude (becomes screenable)</li>
+            <li>Day 31-60: Cloud + Git + Docker (becomes deployable)</li>
+            <li>Day 61-90: One Track + 2 Projects (becomes hirable). Enterprise IT & QA/SDET fastest entry.</li>
+          </ol>
+        </div>
+        <div class="how">
+          <h3>👨‍🏫 If you are a Mentor</h3>
+          <ol>
+            <li>Use Intro as classroom presentation (first 20 mins).</li>
+            <li>Give students link to Vercel deployment. Ask them to create account in My Progress (Supabase Auth).</li>
+            <li>Monitor cohort via Supabase Table view or add a Mentor Dashboard (see sql/ schema).</li>
+            <li>Weekly: ask for progress % screenshot.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="view hidden">
+    <div class="card">
+      <div class="card-head">
+        <h2>Fishbone - Year 1-2 Foundation</h2>
+        <div class="toggle">
+          <button id="btnFishbone" class="active">Fishbone</button>
+          <button id="btnFlow">Flowchart</button>
+        </div>
+      </div>
+      <div id="fishboneContainer" class="fishbone-wrap"></div>
+      <div id="boneDetails" class="bone-grid"></div>
+    </div>
+
+    <div id="flowSection" class="card hidden">
+      <div class="card-head">
+        <h2>Flowchart - Year 3-4 Career Tracks (6 Paths)</h2>
+        <div class="filter">
+          <button data-filter="all" class="active">All</button>
+          <button data-filter="saas">SaaS/Product</button>
+          <button data-filter="corporate">Corporate IT</button>
+          <button data-filter="fast">Fast Entry</button>
+        </div>
+      </div>
+      <div class="flow-intro">Foundation Complete → Sem5 Choose Language (Java/Spring OR Python/FastAPI) → Sem6 Pick ONE Track → Sem7 Cert + Project 1 → Sem8 Project 2 + Deployment + Placement</div>
+      <div id="careerGrid" class="career-grid"></div>
+      <div class="recovery">
+        <h3>90-Day Recovery for Passed-Out Students</h3>
+        <div class="recovery-steps">
+          <div class="rstep"><b>STEP 1</b><span>Day 1-30</span><h4>SQL + Aptitude</h4><ul><li>Window Functions, Joins</li><li>50 SQL problems</li><li>Excel + Power Query</li></ul><em>Outcome: screenable</em></div>
+          <div class="rstep"><b>STEP 2</b><span>Day 31-60</span><h4>Cloud + Git</h4><ul><li>Linux, Bash, GitHub</li><li>AWS EC2,S3,RDS</li><li>Docker</li></ul><em>Outcome: deployable</em></div>
+          <div class="rstep"><b>STEP 3</b><span>Day 61-90</span><h4>One Track + Projects</h4><ul><li>Pick card above</li><li>2 end-to-end builds</li><li>10 jobs/day + mocks</li></ul><em>Outcome: hirable</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="view hidden">
+    <div class="card">
+      <h2>Resources Used & Recommended</h2>
+      <div class="res-grid">
+        <div class="res"><h3>Data & Market Intelligence</h3><ul>
+          <li>India Skills Report 2026 - Wheebox - CSE 80%, IT 78%, B.Tech 71.5% 5-year high</li>
+          <li>UPES/Ambitionbox 2026 - Fresher 3.5-7 LPA, Average 9-15 LPA</li>
+          <li>Times of India, Economic Times AI boom analysis 2025-26</li>
+          <li>NASSCOM Digital Talent demand 8x gap</li>
+        </ul></div>
+        <div class="res"><h3>Free Learning (Foundation Y1-Y2)</h3><ul>
+          <li>C: CS50, Neso Academy</li>
+          <li>DSA: Striver SDE Sheet, NeetCode 150</li>
+          <li>SQL: Mode Analytics SQL Tutorial, LeetCode SQL 50</li>
+          <li>OS/CN: Kunal Kushwaha, NPTEL</li>
+          <li>Git: GitHub Skills</li>
+          <li>Linux: OverTheWire, KodeKloud free</li>
+        </ul></div>
+        <div class="res"><h3>Specialization (Y3-Y4)</h3><ul>
+          <li>Full Stack: Meta Front-end (Coursera), Hitesh Choudhary</li>
+          <li>Cloud: Stephane Maarek AWS SAA (Udemy), KodeKloud</li>
+          <li>Data/AI: Andrew Ng ML, LangChain docs, freeCodeCamp RAG</li>
+          <li>Cyber: TryHackMe free, PortSwigger WebSec</li>
+          <li>Enterprise: Power BI Microsoft Learn, SQL Admin docs</li>
+          <li>QA: ISTQB syllabus, Playwright docs</li>
+        </ul></div>
+        <div class="res"><h3>Why Vercel + Supabase?</h3><ul>
+          <li><b>Vercel Free:</b> Best for static + serverless, auto GitHub deploy, 100GB bandwidth, perfect for classroom link</li>
+          <li><b>Supabase Free:</b> Postgres DB, Auth, 500MB DB, 50k MAU - enough for 100s of students</li>
+          <li><b>Alternative:</b> Firebase, but Supabase is SQL (matches your mentoring on SQL) and open source</li>
+          <li>Cost: ₹0 for starting, scale to $25 when 1000+ students</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress" class="view hidden">
+    <div class="card">
+      <div class="card-head">
+        <h2>My Progress Tracker - Database Powered</h2>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span id="progressPct" class="mono" style="font-size:12px">0% Complete</span>
+          <button id="btnLogin" class="btn">Login / Signup</button>
+          <button id="btnSync" class="btn secondary">Sync to Cloud</button>
+        </div>
+      </div>
+      <div id="authBox" class="auth-box hidden">
+        <input id="email" placeholder="student email (for Supabase Auth)"/>
+        <input id="password" type="password" placeholder="password"/>
+        <button id="doSignup">Signup</button><button id="doLogin">Login</button>
+        <div id="authMsg" class="mono" style="font-size:11px;margin-top:6px"></div>
+      </div>
+      <div class="progress-note">LocalStorage works offline. When Supabase keys are set (see .env.example), it syncs to cloud for mentor view. Check any item - progress auto-calculates.</div>
+      <div id="progressContainer"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>Mantra: Foundation Y1-Y2 = 80% employability, Specialization Y3-Y4 = salary multiplier • Built for VS Code → GitHub → Vercel flow</div>
+    <div class="mono">CSE 80% | B.Tech 71.5% high | Fresher 3.5-7 LPA | Avg 9-15 LPA | Sources: Wheebox ISR 2026, UPES, Ambitionbox</div>
+  </footer>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/fishbone.js"></script>
+<script src="js/flowchart.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/mentor.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
