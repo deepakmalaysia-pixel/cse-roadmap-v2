@@ -42,7 +42,8 @@ function initSupabase(){
   const url = localStorage.getItem('SUPABASE_URL') || '';
   const key = localStorage.getItem('SUPABASE_ANON_KEY') || '';
   if(url && key && window.supabase){
-    SUPABASE = window.supabase.createClient(url, key); window.SUPABASE = SUPABASE(url, key);
+    SUPABASE = window.supabase.createClient(url, key);
+    window.SUPABASE = SUPABASE;
   }
 }
 

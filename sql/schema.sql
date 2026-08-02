@@ -25,13 +25,12 @@ select email, progress, updated_at from public.student_progress order by updated
 -- 6. Index
 create index if not exists idx_progress_updated on public.student_progress(updated_at desc);
 
--- Mentor read-all policy: allow authenticated users to read all for dashboard
--- For production, restrict to mentor emails via: auth.email() in ('you@college.edu')
--- Here we allow all authenticated to read (cohort view)
+-- Mentor read-all policy: restrict to approved mentor emails
+-- Replace placeholder emails below with real mentor/admin accounts.
 drop policy if exists "Mentors can read all" on public.student_progress;
 create policy "Mentors can read all"
 on public.student_progress for select
-using (auth.role() = 'authenticated');
+using ((auth.jwt() ->> 'email') in ('mentor1@college.edu', 'mentor2@college.edu'));
 
 -- If you want public read for demo (remove in prod):
 -- create policy "Public read for demo" on public.student_progress for select using (true);

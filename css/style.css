@@ -50,3 +50,19 @@ body{font-family:Inter,system-ui;background:#070A14;color:#E8ECFF;line-height:1.
 .pbar{width:60px;height:6px;background:rgba(255,255,255,0.1);border-radius:999px;overflow:hidden;display:inline-block;vertical-align:middle;margin-right:6px}.pbar-fill{height:100%;background:linear-gradient(90deg,#22D3EE,#A78BFA)}
 .mentor-side{display:flex;flex-direction:column;gap:10px}.side-card{background:#0B0F1E;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px}.side-card h4{font-size:11px;margin-bottom:8px}.side-list{font-size:11px}.side-item{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,0.06)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}.modal-box{background:#121625;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:16px;width:100%;max-width:720px}.btn.small{padding:4px 8px;font-size:10px}
+
+/* Light theme override: white background with black text */
+body{background:#fff;color:#111}
+.topnav,.hero,.card,.intro-card,.how,.fishbone-wrap,.bone,.flow-intro,.career,.recovery,.rstep,.res,.auth-box,.p-group,.footer,.mstat,.mentor-table-wrap,.side-card,.modal-box{background:#fff;color:#111;border-color:rgba(0,0,0,0.12)}
+.brand em,.lead,.intro-card ul,.stat span,.how ol,.bone li,.filter button,.career li,.res ul,.progress-note,.footer,.mstat span,.mentor-table th,.side-item,.rstep span,.rstep ul,.rstep em{color:rgba(0,0,0,0.72)}
+.navlinks button,.toggle button,.filter button,.btn.secondary{background:#f4f4f4;color:#111;border-color:rgba(0,0,0,0.15)}
+.navlinks button.active,.toggle button.active,.filter button.active,.btn,.rstep b{background:#111;color:#fff}
+.intro-card,.how,.fishbone-wrap,.bone,.flow-intro,.career,.recovery,.rstep,.res,.auth-box,.p-group,.mentor-table-wrap,.side-card,.modal-box{box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.brand em,.p-item,.bone li,.side-item,.mentor-table td,.mentor-table th{border-color:rgba(0,0,0,0.1)}
+.auth-box input{background:#fff;color:#111;border-color:rgba(0,0,0,0.2)}
+.pill{background:rgba(34,211,238,0.15);color:#0e7490;border-color:rgba(14,116,144,0.35)}
+.stat,.meta span,.pbar{background:#f7f7f7;border-color:rgba(0,0,0,0.1)}
+.salary b,.bone li b{color:#111}
+
+/* Targeted contrast boosts for key low-visibility areas */
+.footer,.mentor-table th,.progress-note{color:rgba(0,0,0,0.84)}

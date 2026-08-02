@@ -75,6 +75,14 @@ Each track: Sem-wise skills, 2 projects, certs, target companies.
 3. Add env vars SUPABASE_URL and SUPABASE_ANON_KEY in Vercel Settings if you want build-time injection
 4. Deploy -> you get https://your-project.vercel.app link to share with students
 
+## Security & Privacy Checklist (Before Public Repo)
+
+1. Never commit Supabase service_role keys. Only use SUPABASE_ANON_KEY in client-side code.
+2. Update mentor policy in `sql/schema.sql` with real mentor emails before production use.
+3. Keep student data access least-privilege: students read/write only their own row.
+4. If demoing publicly, use test accounts and avoid real personal student data.
+5. Rotate anon key if it is accidentally exposed in screenshots/docs with extra context.
+
 ## File Structure (clean components)
 
 ```
