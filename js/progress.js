@@ -38,9 +38,9 @@ function renderProgress(){
 }
 
 function initSupabase(){
-  // Replace with your keys from .env.example or set in localStorage for demo
-  const url = localStorage.getItem('SUPABASE_URL') || '';
-  const key = localStorage.getItem('SUPABASE_ANON_KEY') || '';
+  const config = window.SUPABASE_CONFIG || {};
+  const url = config.url || localStorage.getItem('SUPABASE_URL') || '';
+  const key = config.anonKey || localStorage.getItem('SUPABASE_ANON_KEY') || '';
   if(url && key && window.supabase){
     SUPABASE = window.supabase.createClient(url, key);
     window.SUPABASE = SUPABASE;
@@ -61,7 +61,7 @@ async function loadFromCloud(){
   if(data && data.progress){ localStorage.setItem(LS_KEY, JSON.stringify(data.progress)); renderProgress(); }
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
   initSupabase();
   renderProgress();
   const authBox=document.getElementById('authBox');
@@ -80,4 +80,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(error){ document.getElementById('authMsg').textContent=error.message; return; }
     USER=data.user; document.getElementById('authMsg').textContent='Logged in as '+USER.email; document.getElementById('btnLogin').textContent=USER.email; loadFromCloud();
   };
+  if(SUPABASE){
+    const {data} = await SUPABASE.auth.getSession();
+    if(data.session){
+      USER=data.session.user;
+      document.getElementById('btnLogin').textContent=USER.email;
+      await loadFromCloud();
+    }
+  }
 });

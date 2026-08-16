@@ -66,7 +66,8 @@ Each track: Sem-wise skills, 2 projects, certs, target companies.
    localStorage.setItem('SUPABASE_ANON_KEY','your-anon-key')
    ```
    Reload page -> My Progress -> Signup/Login -> Sync
-5. Option B (proper): Create `.env.local` from `.env.example`, and in Vercel dashboard set env vars
+5. Option B (static deployment): Put your project URL and anon key in `js/supabase-config.js`, then deploy. The anon key is intended for browser use; never put a `service_role` key in this file.
+6. Option C (Vercel build): `.env.local` and Vercel environment variables do not automatically reach this no-build static page. Use Option B, or add a build step that injects `SUPABASE_CONFIG` before deployment.
 
 ## Deploy to Vercel (2 mins)
 
